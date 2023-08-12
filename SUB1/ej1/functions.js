@@ -1,29 +1,27 @@
 // Cargar registro
-const loadRegister = (event) => {
+const loadCashFlow = (event) => {
     event.preventDefault();
     // Obtengo los valores ingresados
-    const month = document.getElementById("month").value;
-    const income = Number(document.getElementById("income").value);
-    const outflow = Number(document.getElementById("outflow").value);
+    const cashFlow = {
+        month: document.getElementById("month").value,
+        income: Number(document.getElementById("income").value),
+        outflow: Number(document.getElementById("outflow").value)
+    }
 
     // Valido los valores ingresados
-    if (
-        monthIsValid(month) &&
-        amountIsValid(income) &&
-        amountIsValid(outflow)
-    ) {
+    if (cashFlowIsValid(cashFlow)) {
         // Creo una nueva fila "tr"
         const newRow = document.createElement("tr");
 
         // Creo los "td" para cada valor ingresado por input
         const monthItem = document.createElement("td");
-        monthItem.innerText = month.toUpperCase();
+        monthItem.innerText = cashFlow.month.toUpperCase();
 
         const incomeItem = document.createElement("td");
-        incomeItem.innerText = income;
+        incomeItem.innerText = cashFlow.income;
 
         const outflowItem = document.createElement("td");
-        outflowItem.innerText = outflow;
+        outflowItem.innerText = cashFlow.outflow;
 
         // Los agrego como hijos al "tr" creado anteriormente
         newRow.appendChild(monthItem);
@@ -34,7 +32,7 @@ const loadRegister = (event) => {
         tableBody.appendChild(newRow);
 
         // Actualizo la variación total con los valores cargados
-        updateTotalVariation(income, outflow);
+        updateTotalVariation(cashFlow.income, cashFlow.outflow);
 
         // Reseteo el form
         form.reset();
@@ -43,9 +41,19 @@ const loadRegister = (event) => {
 
 // Actualizar Variación Total
 const updateTotalVariation = (income, outflow) => {
+    const totalVarContainer = document.getElementById('totalVarContainer');
     let variation = income - outflow;
     totalVariation += variation;
     totalVariationElement.innerText = totalVariation.toFixed(2);
+
+    if(totalVariation < 0){
+        totalVarContainer.classList.remove('profitable');
+        totalVarContainer.classList.add('unprofitable');
+    }
+    else{
+        totalVarContainer.classList.remove('unprofitable');
+        totalVarContainer.classList.add('profitable');
+    }
 };
 
 // Setear año cargado
@@ -94,7 +102,27 @@ const deleteYearBtn = (event) => {
     yearBtn.disabled = false;
 };
 
+
+/*
+    FUNCION EJERCICIO 1 SUB 2
+*/
+
+const cashFlowIsProfitable = cashFlow => {
+    if(cashFlow.income === cashFlow.outflow){
+        return 0;
+    }
+    return cashFlow.income > cashFlow.outflow ? 1 : -1;
+}
+
+
 // VALIDACIONES
+
+const cashFlowIsValid = (cashFlow) => {
+    if(monthIsValid(cashFlow.month) && amountIsValid(cashFlow.income) && amountIsValid(cashFlow.outflow)){
+        return true;
+    }
+    return false;
+}
 
 const monthIsValid = (str) => {
     const spanishValidMonth = [
@@ -126,8 +154,8 @@ const monthIsValid = (str) => {
         "december",
     ];
     return (
-        spanishValidMonth.includes(str.toLowerCase()) ||
-        englishValidMonth.includes(str.toLowerCase())
+        spanishValidMonth.includes(str.trim().toLowerCase()) ||
+        englishValidMonth.includes(str.trim().toLowerCase())
     );
 };
 
@@ -142,3 +170,4 @@ const yearIsValid = (str) => {
     const number = Number(str);
     return number >= lowestYearAllowed && number <= actualDate.getFullYear();
 };
+

@@ -7,7 +7,8 @@
     --light-gray: #d3d3d3;
     --dark-gray: #454546;
     --red: #a73636;
-}
+    --green: #37af65;
+}   
 
 * {
     margin: 0;
@@ -52,6 +53,12 @@ hr{
 }
 .disabled::placeholder{
     color: var(--black);
+}
+.profitable{
+    color: var(--green);
+}
+.unprofitable{
+    color: var(--red);
 }
 .separator{
     height: 30px;

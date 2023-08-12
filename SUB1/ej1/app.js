@@ -10,4 +10,4 @@ const tableBody = document.getElementById("tableBody");
 const totalVariationElement = document.getElementById("totalVariation");
 
 yearForm.addEventListener("submit", setYear);
-form.addEventListener("submit", loadRegister);
+form.addEventListener("submit", loadCashFlow);
