@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<title>DESAFIO 12 - JAVASCRIPT - EJERCICIO 1</title>
+</head>
+<body>
+	<main>
+		<div class="container">
+			<div class="form-container">
+				<h2 class="form-title">Ingreso de datos</h2>
+				<div class="forms">
+					<form id="yearForm" class="year-form">
+						<label for="year" hidden>Anio:</label>
+						<input type="text" id="year" placeholder="Año" maxlength=4 >
+						<button type="submit" id="yearBtn">
+							<ion-icon name="arrow-forward-outline"></ion-icon>
+						</button>
+					</form>
+					<hr class="form-separator">
+					<form id="form" class="primary-form">
+						<div class="items">
+							<div class="item">
+								<label for="month" hidden>Mes:</label>
+								<input type="text" id="month" placeholder="Mes" maxlength=10 autocomplete="off">
+							</div>
+							<hr class="separator">
+							<div class="item">
+								<label for="income" hidden>Ingresos:</label>
+								<input type="text" id="income" placeholder="Ingresos" maxlength=12 autocomplete="off">
+							</div>
+							<hr class="separator">
+							<div class="item">
+								<label for="outflow" hidden>Egresos:</label>
+								<input type="text" id="outflow" placeholder="Egresos" maxlength=12 autocomplete="off">
+							</div>
+						</div>
+						<button type="submit" class="submit-btn">Cargar</button>
+					</form>
+				</div>
+			</div>
+			<div class="table-section">
+				<div class="table-container">
+					<div class="table-title">
+						<h2>Flujo de caja</h2>
+						<div id="yearContainer" class="delete-btn-container hide">
+							<p class="year">Año:  <span id="yearElement"></span></p>
+							<button id="deletBtn" onclick="deleteYearBtn()">
+								<ion-icon name="close-circle-outline"></ion-icon>
+							</button>
+						</div>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Mes</th>
+								<th>Ingresos</th>
+							<th>Egresos</th>
+						</tr>
+						</thead>
+						<tbody id="tableBody">
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="total-container">
+				<h3>TOTAL DE VARIACIÓN: </h3>
+				<p>$ <span id="totalVariation">0</span></p>
+			</div>
+		</div>
+	</main>
+
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	<script src="functions.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>

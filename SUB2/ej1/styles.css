@@ -1,0 +1,253 @@
+:root{
+    --primary-color: #2c4f63;
+    --secondary-color: #5a8097;
+    --black: #100f11;
+    --white: #fafafa; 
+    --gray: #b3b3b3;
+    --light-gray: #d3d3d3;
+    --dark-gray: #454546;
+    --red: #a73636;
+    --green: #37af65;
+}   
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--white);
+}
+input{
+    outline: none;
+}
+hr{
+    background-color: #dadada;
+    border: none;
+    width: 100%;
+    height: 1px;
+}
+.container {
+    width: 70%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+    gap: 20px;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.disabled{
+    background-color: var(--gray) !important;
+}
+.disabled::placeholder{
+    color: var(--black);
+}
+.profitable{
+    color: var(--green);
+}
+.unprofitable{
+    color: var(--red);
+}
+.separator{
+    height: 30px;
+    width: 1px;
+    border: none;
+    background-color: var(--gray);
+}
+/*
+    FORM CONTAINER
+*/
+.form-container .forms{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black);
+    border-radius: 25px;
+    gap: 30px;
+}
+
+/*
+    YEAR FORM STYLES
+*/
+
+.year-form{
+    width: 140px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.year-form input{
+    width: 100px;
+    height: 40px;
+    border-radius: 15px 0 0 15px ;
+    border: none;
+    padding-left: 15px;
+    font-size: 18px;
+    background-color: var(--white);
+}
+.year-form button{
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 0 15px 15px 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s;
+}
+.year-form button:disabled{
+    background-color: var(--gray);
+    color: var(--dark-gray);
+}
+.form-separator{
+    height: 60px;
+    width: 2px;
+    border: none;
+    background-color: var(--white);
+}
+
+/*
+    FORM STYLES
+*/
+
+.form-container h2{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.form-container .primary-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container .primary-form .items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px 0 0 15px;
+    background-color: var(--white);
+}
+.primary-form .item input{
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    padding-left: 15px;
+    border: none;
+    background-color: transparent;
+}
+form .submit-btn{
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 0 15px 15px 0;
+    outline: none;
+    color: var(--white);
+    transition: all .3s;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+/*
+    TABLE STYLES
+*/
+
+.table-section {
+    width: 100%;
+    height: auto;
+    padding: 30px 0;
+    background-color: var(--black);
+    border-radius: 15px;
+}
+.table-container{
+    width: 90%;
+    margin: 0 auto;
+}
+.table-container .table-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.table-container .table-title h2{
+    color: var(--white);
+    text-align: center;
+    font-size: 30px;
+}
+.table-title .delete-btn-container p{
+    font-size: 20px;
+    color: var(--white);
+    font-weight: 700;
+}
+.table-title .delete-btn-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: transparent;
+    color: var(--red);
+}
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 15px;
+    border: none;
+    overflow: hidden;
+}
+.table-container table th,td{
+    padding: 10px 0 10px 15px;
+    text-align: left;
+    border: 1px solid var(--gray);
+    font-size: 18px;
+}
+th{
+    background-color: var(--light-gray);
+}
+td{
+    background-color: var(--white);
+}
+
+/*
+    TOTAL SECTION
+*/
+
+.total-container{
+    width: 100%;
+    background-color: var(--black);
+    border-radius: 15px;
+    padding: 10px 30px;
+    color: var(--white);
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 20px;
+}
+.total-container h3{
+    font-size: 30px;
+}   
+.total-container p{
+    font-size: 35px;
+    font-style: italic;
+}
+
